@@ -1,6 +1,15 @@
 {% extends 'base.html.twig' %} {% block title %}Contact{% endblock %} {% block
 body %}
 
+<div class="formWrapper">
+  {{ form(form, {attr: {'novalidate': 'novalidate'}}) }}
+</div>
+
+{% for message in app.flashes('success') %}
+{{ message }}
+{% endfor %} {% for message in app.flashes('fail') %}
+{{ message }}
+{% endfor %} {#
 <div class="container">
   <form>
     <div class="mb-3">
@@ -22,4 +31,4 @@ body %}
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
-{% endblock %}
+#} {% endblock %}
