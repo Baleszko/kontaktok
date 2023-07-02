@@ -26,10 +26,13 @@ class ContactController extends AbstractController
         if($form->isSubmitted()){
             if(!empty( $_POST['contact']['name']) &&  !empty( $_POST['contact']['email']) &&  !empty( $_POST['contact']['text'])){              
                 
+                $name = trim( $_POST['contact']['name']);
+                $email = trim($_POST['contact']['email']);
+                $text = trim( $_POST['contact']['text']);
 
-                $contact->setName( $_POST['contact']['name']);
-                $contact->setEmail( $_POST['contact']['email']);
-                $contact->setText( $_POST['contact']['text']);
+                $contact->setName(htmlspecialchars($name));
+                $contact->setEmail( htmlspecialchars($email));
+                $contact->setText( htmlspecialchars($text));
 
                 $entityManager->persist($contact);
                 $entityManager->flush();

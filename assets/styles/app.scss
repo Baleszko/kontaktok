@@ -4,11 +4,23 @@ $primary: darken(#428bca, 20%);
 
 body {
   height: 100vh;
-  background-color: lightgray;
 }
 
-.formWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#contact_save {
+  width: 100%;
+}
+
+.form-container {
+  width: 50%;
+}
+
+@include media-breakpoint-down(lg) {
+  .form-container {
+    width: 75%;
+  }
+}
+@include media-breakpoint-down(md) {
+  .form-container {
+    width: 100%;
+  }
 }
